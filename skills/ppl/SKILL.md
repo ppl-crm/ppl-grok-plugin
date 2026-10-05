@@ -6,7 +6,7 @@ ppl is the memory layer for your agent. Your human's own AI is the intelligence 
 
 The user does not need to copy a token by hand. On first connect:
 
-1. Tell the user to open **https://ppl.gift/agents** and approve the connection request (one approval).
+1. Tell the user to open **https://withppl.com/agents** and approve the connection request (one approval).
 2. ppl mints a per-user API token. Use it as the Bearer token for the MCP server (configured as `PPL_API_TOKEN`).
 
 ## Session start
@@ -23,4 +23,4 @@ Use the `remember` tool with a `contact_id` and a `fact` every time you learn so
 
 ## Tools
 
-85 tools over Streamable HTTP at `https://ppl.gift/mcp`: contacts, notes, tasks, reminders, calls, gifts, journal, briefings, semantic search, digest, suggested actions, webhooks, and contact import.
+85 tools over Streamable HTTP at `https://withppl.com/mcp`: contacts, notes, tasks, reminders, calls, gifts, journal, briefings, semantic search, digest, suggested actions, webhooks, and contact import.

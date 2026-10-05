@@ -14,9 +14,9 @@ This plugin bundles ppl's hosted MCP server so Grok Build agents get ppl's full 
 
 ## Setup
 
-No local install. The MCP server is hosted at `https://ppl.gift/mcp` (Streamable HTTP).
+No local install. The MCP server is hosted at `https://withppl.com/mcp` (Streamable HTTP).
 
-On first connect, the agent guides you through the one-approval connect flow at **https://ppl.gift/agents**. You never have to copy a token by hand; the agent handles the token.
+On first connect, the agent guides you through the one-approval connect flow at **https://withppl.com/agents**. You never have to copy a token by hand; the agent handles the token.
 
 ## Session habit
 
@@ -24,6 +24,6 @@ Every session, before answering, the agent calls `get_briefing`, `get_next_actio
 
 ## Links
 
-- ppl: https://ppl.gift
-- Agent docs: https://ppl.gift/agents
+- ppl: https://withppl.com
+- Agent docs: https://withppl.com/agents
 - MCP registry: `io.github.dbhurley/ppl`
