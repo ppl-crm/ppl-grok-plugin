@@ -13,9 +13,9 @@ The user does not need to copy a token by hand. On first connect:
 
 Every session, before answering, call the `ppl` MCP server:
 
-1. `get_briefing` — what needs attention today (birthdays, overdue reconnects, due reminders and tasks).
-2. `get_next_action` — the single next thing to act on.
-3. `recall` — search memory before answering any question about a person.
+1. `get_briefing`: what needs attention today (birthdays, overdue reconnects, due reminders and tasks).
+2. `get_next_action`: the single next thing to act on.
+3. `ask_memory` (or `semantic_search`): search memory before answering any question about a person.
 
 ## Remember
 
@@ -23,4 +23,4 @@ Use the `remember` tool with a `contact_id` and a `fact` every time you learn so
 
 ## Tools
 
-85 tools over Streamable HTTP at `https://withppl.com/mcp`: contacts, notes, tasks, reminders, calls, gifts, journal, briefings, semantic search, digest, suggested actions, webhooks, and contact import.
+86 tools over Streamable HTTP at `https://withppl.com/mcp`: contacts, notes, tasks, reminders, calls, gifts, journal, briefings, semantic search, digest, suggested actions, webhooks, and contact import.
