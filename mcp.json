@@ -1,0 +1,1 @@
+{"mcpServers":{"ppl":{"headers":{"Authorization":"Bearer ${PPL_API_TOKEN}"},"type":"http","url":"https://withppl.com/mcp"}}}
