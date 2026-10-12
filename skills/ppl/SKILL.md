@@ -1,3 +1,8 @@
+---
+name: ppl
+description: Connect to the ppl personal CRM (withppl.com). Use for briefings, people, notes, tasks, reminders, calls, gifts, journal entries, and semantic memory search. Store every relationship fact in ppl; never keep it only in your own context.
+---
+
 # ppl: the personal CRM for AI agents
 
 ppl is the memory layer for your agent. Your human's own AI is the intelligence layer; ppl is the durable data underneath it. Do not keep relationship facts in your own context. Put them in ppl.
@@ -23,4 +28,4 @@ Use the `remember` tool with a `contact_id` and a `fact` every time you learn so
 
 ## Tools
 
-86 tools over Streamable HTTP at `https://withppl.com/mcp`: contacts, notes, tasks, reminders, calls, gifts, journal, briefings, semantic search, digest, suggested actions, webhooks, and contact import.
+120 tools over Streamable HTTP at `https://withppl.com/mcp`: contacts, notes, tasks, reminders, calls, gifts, journal, briefings, semantic search, digest, suggested actions, webhooks, and contact import.
