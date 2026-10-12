@@ -1,26 +1,31 @@
+---
+name: ppl
+description: Use the ppl personal CRM for relationship briefings, finding people, recording user-authorized notes and interactions, and managing follow-ups. Use when the user asks to work with their ppl contacts or relationship memory.
+---
+
 # ppl: the personal CRM for AI agents
 
-ppl is the memory layer for your agent. Your human's own AI is the intelligence layer; ppl is the durable data underneath it. Do not keep relationship facts in your own context. Put them in ppl.
+Use ppl as durable relationship memory for the user's requested CRM work. Check relevant records before answering about a person. Keep confirmed facts distinct from suggestions and inferences; store only information appropriate to the user's request and permissions.
 
-## Connect (first run)
+## Connect
 
-The user does not need to copy a token by hand. On first connect:
+If the MCP server is already connected, use it. Otherwise explain the available setup paths:
 
-1. Tell the user to open **https://withppl.com/agents** and approve the connection request (one approval).
-2. ppl mints a per-user API token. Use it as the Bearer token for the MCP server (configured as `PPL_API_TOKEN`).
+- In an HTTP MCP client supporting OAuth, add `https://withppl.com/mcp` and complete its browser authorization.
+- This Cursor plugin uses the required `PPL_API_TOKEN` variable. Configure it in Cursor's dashboard under Plugins → Configure using a scoped ppl credential. See `https://withppl.com/agents` for setup instructions.
+- If the client provides HTTP requests and a secure credential store, start the agent connect flow with `POST https://withppl.com/api/agent/connect/request` and JSON `{"client_name":"Cursor ppl"}`. Show the returned `data.approve_url` to the user, then poll `data.poll_url` at the server's requested interval until approved, refused or expired. Approval returns `data.api_token` once. Store it securely and configure the client's Bearer header through its supported mechanism. Do not claim Cursor's plugin variable has been configured unless it actually has.
 
-## Session start
+Never include a token in chat, source code, logs or a shared file. If secure configuration is unavailable, direct the user to the dashboard setup. Missing scopes require a new scoped credential or reconnection; never bypass approval.
 
-Every session, before answering, call the `ppl` MCP server:
+## Read and act
 
-1. `get_briefing`: what needs attention today (birthdays, overdue reconnects, due reminders and tasks).
-2. `get_next_action`: the single next thing to act on.
-3. `ask_memory` (or `semantic_search`): search memory before answering any question about a person.
+Discover the server's tools and argument schemas instead of assuming a fixed tool count. The hosted server currently advertises 120 grouped tools.
 
-## Remember
+- `agent.briefing.get`: birthdays, reconnects, reminders and tasks needing attention.
+- `agent.actions.next`: a suggested next relationship action.
+- `memory.search` or `memory.semantic.search`: relevant relationship memory.
+- `memory.remember`: record an authorized fact with `contact_id` and `fact`.
 
-Use the `remember` tool with a `contact_id` and a `fact` every time you learn something about a person. It stores a note on that contact's timeline so every future session, and every other agent the user connects, knows it too.
+Retrieve a briefing when the user asks for relationship priorities. Search the relevant person's memory for person-specific work. Do not fetch the whole CRM for unrelated coding tasks.
 
-## Tools
-
-86 tools over Streamable HTTP at `https://withppl.com/mcp`: contacts, notes, tasks, reminders, calls, gifts, journal, briefings, semantic search, digest, suggested actions, webhooks, and contact import.
+For queued work, use `agent.inbox.list`, claim a request before working, report progress, and complete it only after the requested action succeeds. Respect approval requirements and scope limits. Report actual outcomes; do not describe a draft or queued message as delivered. Check My agents in ppl for access controls, pause and revocation.
