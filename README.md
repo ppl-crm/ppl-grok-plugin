@@ -1,29 +1,33 @@
-# ppl for Grok Build
+# ppl for Cursor and Grok Build
 
-**ppl** is the personal CRM for AI agents. Your agent's own intelligence is the thinking layer; ppl is the durable memory underneath it: the people who matter, what they care about, and what needs to happen next.
+**ppl** is the personal CRM for AI agents. Keep relationship notes, birthdays, interactions and follow-ups available across sessions and authorized agents.
 
-This plugin bundles ppl's hosted MCP server so Grok Build agents get ppl's full tool surface (86 tools) with a one-click install.
+This plugin bundles a CRM skill and the hosted Streamable HTTP MCP endpoint at `https://withppl.com/mcp`. The server currently advertises 120 grouped tools; clients should discover its current tool list and schemas.
 
-## What it does
+## What you can do
 
-- **Morning briefings**: birthdays, overdue reconnects, due reminders and tasks
-- **Remember**: store facts on a contact's timeline so no agent forgets them
-- **Log**: notes, calls, gifts, journal entries
-- **Manage**: tasks, reminders, contacts (full read/write/delete)
-- **Recall**: semantic and keyword search over everything ppl knows
+- Read a briefing of birthdays, reminders, tasks and overdue follow-ups.
+- Find a person and retrieve relevant relationship memory.
+- Record notes, calls, gifts and journal entries.
+- Manage contacts, reminders and tasks within your granted permissions.
+- Pick up requested work and return an outcome for human review.
 
-## Setup
+## Cursor setup
 
-No local install. The MCP server is hosted at `https://withppl.com/mcp` (Streamable HTTP).
+Install the plugin, then open the Cursor dashboard's **Plugins → Configure** and set its required `PPL_API_TOKEN` variable to a scoped ppl credential. Start at [ppl's agent setup](https://withppl.com/agents). The token is sent only as an Authorization header to the hosted ppl server; never commit it or paste it into chat.
 
-On first connect, the agent guides you through the one-approval connect flow at **https://withppl.com/agents**. You never have to copy a token by hand; the agent handles the token.
+Clients with OAuth support can instead configure the hosted endpoint directly and complete browser authorization. That path does not need this plugin's token variable.
 
-## Session habit
+The agent connect flow is also available to clients with HTTP access and secure credential storage: request a connection, show the returned approval URL, and poll for approval. Browser approval alone does not automatically configure Cursor's plugin variable. See [connection instructions](https://withppl.com/guides/cursor).
 
-Every session, before answering, the agent calls `get_briefing`, `get_next_action`, and `ask_memory` so it starts with what ppl knows. Anything it learns goes back in via `remember`.
+After setup, ask: “Read my ppl briefing and suggest one useful follow-up.” Check **Settings → My agents** in ppl for access and activity. Pause or revoke access there. Existing credentials retain their granted scopes; reconnect if a needed permission is missing. Suggested actions and message drafts do not bypass human approval.
+
+## Other clients
+
+The repository also retains its Grok Build manifest. Use the client's supported secure credential configuration for `PPL_API_TOKEN`. No local MCP server process is needed.
 
 ## Links
 
-- ppl: https://withppl.com
-- Agent docs: https://withppl.com/agents
-- MCP registry: `io.github.ppl-crm/ppl`
+- [ppl](https://withppl.com)
+- [Agent docs](https://withppl.com/agents)
+- Official MCP Registry: `io.github.ppl-crm/ppl`

@@ -1,1 +1,48 @@
-{"author": {"email": "dbhurley@me.com", "name": "DB Hurley", "url": "https://withppl.com"}, "description": "ppl, the personal CRM for AI agents. Give your agent a durable memory of the people who matter: briefings, notes, reminders, tasks, calls, gifts, and journal entries, all over a hosted MCP server.", "displayName": "ppl", "homepage": "https://withppl.com/agents", "keywords": ["ppl", "ppl crm", "personal crm", "agent memory", "contact management", "relationship management"], "license": "MIT", "mcpServers": {"ppl": {"headers": {"Authorization": "Bearer ${PPL_API_TOKEN}"}, "type": "http", "url": "https://withppl.com/mcp"}}, "name": "ppl", "repository": "https://github.com/ppl-crm/ppl-grok-plugin", "skills": ["./skills/ppl"], "version": "1.0.0", "variables": {"type": "object", "properties": {"PPL_API_TOKEN": {"type": "string", "title": "ppl API token", "description": "Personal ppl API token. The user mints it by approving the connection at https://withppl.com/agents."}}, "required": ["PPL_API_TOKEN"]}}
+{
+  "author": {
+    "email": "dbhurley@me.com",
+    "name": "DB Hurley",
+    "url": "https://withppl.com"
+  },
+  "description": "ppl, the personal CRM for AI agents. Give your agent a durable memory of the people who matter: briefings, notes, reminders, tasks, calls, gifts, and journal entries, all over a hosted MCP server.",
+  "displayName": "ppl",
+  "homepage": "https://withppl.com/agents",
+  "keywords": [
+    "ppl",
+    "ppl crm",
+    "personal crm",
+    "agent memory",
+    "contact management",
+    "relationship management"
+  ],
+  "license": "MIT",
+  "mcpServers": {
+    "ppl": {
+      "headers": {
+        "Authorization": "Bearer ${PPL_API_TOKEN}"
+      },
+      "type": "http",
+      "url": "https://withppl.com/mcp"
+    }
+  },
+  "name": "ppl",
+  "repository": "https://github.com/ppl-crm/ppl-grok-plugin",
+  "skills": [
+    "./skills/ppl"
+  ],
+  "version": "1.0.0",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "PPL_API_TOKEN": {
+        "type": "string",
+        "title": "ppl API token",
+        "description": "Scoped ppl credential configured in Cursor Plugins \u2192 Configure. See https://withppl.com/agents; browser approval alone does not populate this variable."
+      }
+    },
+    "required": [
+      "PPL_API_TOKEN"
+    ]
+  },
+  "logo": "assets/ppl.svg"
+}
